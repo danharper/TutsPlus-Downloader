@@ -28,7 +28,7 @@
   ],
   "web_accessible_resources": [
     "src/inject/jquery.js",
-    "src/inject/second.js"
+    "src/resulting/downloading.js"
   ],
   "content_scripts": [
     {
