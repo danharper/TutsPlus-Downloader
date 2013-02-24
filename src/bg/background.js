@@ -1,4 +1,4 @@
-(function() {
+// (function() {
 	
 	var preparedWindow;
 
@@ -95,4 +95,4 @@
 		sendResponse();
 	});
 
-})();
+// })();
