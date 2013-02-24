@@ -19,8 +19,7 @@
   },
   "page_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "page action demo",
-    "default_popup": "src/pop.html"
+    "default_title": "page action demo"
   },
   "permissions": [
     "https://*/*",
