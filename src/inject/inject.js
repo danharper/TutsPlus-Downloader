@@ -18,27 +18,28 @@ chrome.extension.sendMessage({}, function(response) {
 		}
 
 		function addSecondScript(){
-		    // addScript(chrome.extension.getURL("src/inject/second.js"));
 		    var $courseVideos = $('.section-title a[href]');
 		    if ($courseVideos.length) {
-		    	var go = window.confirm(''+$courseVideos.length+' videos found for this course. Download?');
-		    	if (go) {
-			    	chrome.extension.sendMessage({prepareWindow:true}, function() {
-				    	$courseVideos.each(function(e,el) {
-							chrome.extension.sendMessage({
-								// openTab: $(el).attr('href')
+		    	$('body').append('<a href="#" id="xext-download-videos" style="display:block;position:fixed;top:0;right:0;color:white;background:#BB3D0B;padding:5px 10px;text-decoration:none;">Download Course Videos</a>');
+		    	$(document).on('click', '#xext-download-videos', function(e) {
+		    		e.preventDefault();
+			    	if (window.confirm(''+$courseVideos.length+' videos found for this course. Download?')) {
+				    	chrome.extension.sendMessage({prepareWindow:true}, function() {
+					    	$courseVideos.each(function(e,el) {
+								chrome.extension.sendMessage({
+									openTab: $(el).attr('href')+'#extDownload'
+								});
 							});
 						});
-					});
-				}
+					}
+		    	});
 			}
 
 			var $downloadLinks = $('.lesson-meta-wrap .post-buttons a');
-			if ($downloadLinks.length) {
+			if ($downloadLinks.length && window.location.hash == '#extDownload') {
 				$downloadLinks.each(function(e, link) {
-					// chrome.extension.sendMessage({openTab: $(link).attr('href')});
+					chrome.extension.sendMessage({openTab: $(link).attr('href')});
 				});
-				chrome.extension.sendMessage({closeMe: true});
 			}
 		}
 
