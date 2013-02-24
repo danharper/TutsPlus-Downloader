@@ -33,7 +33,7 @@ chrome.extension.sendMessage({}, function(response) {
 				    	chrome.extension.sendMessage({prepareWindow:true, links:links}, function() {
 					    	$courseVideos.each(function(e,el) {
 								chrome.extension.sendMessage({
-									// openTab: $(el).attr('href')+'#extDownload'
+									openTab: $(el).attr('href')+'#extDownload'
 								});
 							});
 						});
@@ -44,7 +44,7 @@ chrome.extension.sendMessage({}, function(response) {
 			var $downloadLinks = $('.lesson-meta-wrap .post-buttons a');
 			if ($downloadLinks.length && window.location.hash == '#extDownload') {
 				$downloadLinks.each(function(e, link) {
-					// chrome.extension.sendMessage({openTab: $(link).attr('href')});
+					chrome.extension.sendMessage({openTab: $(link).attr('href')});
 				});
 			}
 		}
