@@ -12,19 +12,22 @@
   "default_locale": "en",
   "background": {
     "scripts": [
+      "src/bg/underscore.js",
       "src/bg/background.js"
     ],
     "persistent": true
   },
   "page_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "page action demo"
+    "default_title": "page action demo",
+    "default_popup": "src/pop.html"
   },
   "permissions": [
     "https://*/*",
     "tabs",
     "webNavigation",
-    "webRequest"
+    "webRequest",
+    "downloads"
   ],
   "web_accessible_resources": [
     "src/inject/jquery.js",
