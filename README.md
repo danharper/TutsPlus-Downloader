@@ -1,3 +1,7 @@
+**Note:** Tuts+ now have a "Download Course" feature, so this code is largely useless. But it'll remain here as an example for how to do similar things.
+
+---
+
 # Tuts+ Course Downloader
 
 1. Install the extension (Window > Extensions > Developer Mode > Load unpacked extension...)
